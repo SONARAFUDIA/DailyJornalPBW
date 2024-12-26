@@ -86,7 +86,7 @@ include "koneksi.php";
                     class="img-fluid"
                     width="600" />
                 <div class="p-2">
-                    <h1 class="fw-bold display-4 text-sm-start">Welcome to Kivotos</h1>
+                    <h1 class="fw-bold display-4 text-sm-start">Welcome to Kivotos2</h1>
                     <h4 class="lead display-6 text-sm-start">
                         Home to thousands of different academies
                     </h4>
