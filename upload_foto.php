@@ -36,14 +36,13 @@ function upload_foto($File)
 		// if everything is ok, try to upload file
 	} else {
 		//Create new filename:
-		$NewName = date("YmdHis") . '.' . $FileExt;
-		$UploadDestination1 = "img/" . $NewName;
-		$UploadDestination2 = "img/galer/" . $NewName;
+		$NewName = date("YmdHis"). '.' . $FileExt;
+        $UploadDestination = "img/". $NewName; 
 
-		if (move_uploaded_file($TmpLocation, $UploadDestination1) && copy($UploadDestination1, $UploadDestination2)) {
+		if (move_uploaded_file($TmpLocation, $UploadDestination)) {
 			//echo "The file has been uploaded.";
 			$message .= $NewName;
-			$hasil['status'] = true;
+			$hasil['status'] = true; ;
 		} else {
 			$message .= "Sorry, there was an error uploading your file. ";
 			$hasil['status'] = false;

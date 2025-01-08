@@ -67,6 +67,7 @@ if (!isset($_SESSION['username'])) {
                             <?= $_SESSION['username'] ?>
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="admin.php?page=profil">Profile <?= $_SESSION['username'] ?> </a></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     </li>
@@ -75,7 +76,6 @@ if (!isset($_SESSION['username'])) {
         </div>
     </nav>
     <!-- nav end -->
-    <!-- content begin -->
     <!-- content begin -->
     <section id="content" class="p-5">
         <div class="container">
@@ -94,7 +94,6 @@ if (!isset($_SESSION['username'])) {
             ?>
         </div>
     </section>
-    <!-- content end -->
     <!-- content end -->
     <!-- footer begin -->
     <footer class="text-center p-5 bg-info-subtle ">

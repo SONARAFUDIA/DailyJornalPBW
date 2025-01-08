@@ -32,9 +32,9 @@
                 <td>
                     <?php
                     if ($row["gambar"] != '') {
-                        if (file_exists('img/galer/' . $row["gambar"] . '')) {
+                        if (file_exists('img/' . $row["gambar"] . '')) {
                     ?>
-                            <img src="img/galer/<?= $row["gambar"] ?>" width="100">
+                            <img src="img/<?= $row["gambar"] ?>" width="100">
                     <?php
                         }
                     }
@@ -65,9 +65,9 @@
                                             <label for="formGroupExampleInput3" class="form-label">Gambar Lama</label>
                                             <?php
                                             if ($row["gambar"] != '') {
-                                                if (file_exists('img/galer/' . $row["gambar"] . '')) {
+                                                if (file_exists('img/' . $row["gambar"] . '')) {
                                             ?>
-                                                    <br><img src="img/galer/<?= $row["gambar"] ?>" width="100">
+                                                    <br><img src="img/<?= $row["gambar"] ?>" width="100">
                                             <?php
                                                 }
                                             }
