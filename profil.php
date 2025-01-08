@@ -1,23 +1,23 @@
 <?php
 include "koneksi.php";
-include "upload_foto.php";
 
-// Ambil ID user yang sedang login
-$user_id = 2; // Gantilah ini dengan mekanisme autentikasi yang sesuai
+// Pastikan pengguna sudah login
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
 
-// Ambil data user yang sedang masuk
-$sql = "SELECT * FROM user WHERE id = ?";
+// Ambil username dari sesi
+$username = $_SESSION['username'];
+
+// Ambil data user berdasarkan username
+$sql = "SELECT * FROM user WHERE username = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
-// Jika user tidak ditemukan
-if (!$user) {
-    echo "<script>alert('User tidak ditemukan!'); window.location='admin.php';</script>";
-    exit;
-}
 
 // Jika tombol simpan ditekan
 if (isset($_POST['simpan'])) {
@@ -41,8 +41,8 @@ if (isset($_POST['simpan'])) {
     }
 
     // Update data user
-    $stmt = $conn->prepare("UPDATE user SET password = ?, foto = ? WHERE id = ?");
-    $stmt->bind_param("ssi", $password, $foto, $user_id);
+    $stmt = $conn->prepare("UPDATE user SET password = ?, foto = ? WHERE username = ?");
+    $stmt->bind_param("sss", $password, $foto, $username);
 
     if ($stmt->execute()) {
         echo "<script>alert('Data berhasil diperbarui!'); window.location='admin.php?page=profil';</script>";

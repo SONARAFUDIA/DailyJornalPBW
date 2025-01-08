@@ -2,6 +2,7 @@
 session_start();
 
 include "koneksi.php";
+include "upload_foto.php";
 
 //check jika belum ada user yang login arahkan ke halaman login
 if (!isset($_SESSION['username'])) {
