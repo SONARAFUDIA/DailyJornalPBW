@@ -56,23 +56,23 @@ $conn->close();
 ?>
 
 <form method="post" action="" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="password" class="form-label">Password Baru</label>
-            <input type="password" class="form-control" name="password" placeholder="Masukkan Password Baru">
-        </div>
-        <div class="mb-3">
-            <label for="foto" class="form-label">Ganti Foto Profil</label>
-            <input type="file" class="form-control" name="foto">
-        </div>
-        <div class="mb-3">
-            <label for="foto_lama" class="form-label">Foto Lama</label><br>
-            <?php if (!empty($user['foto']) && file_exists('img/' . $user['foto'])) : ?>
-                <img src="img/<?= $user['foto'] ?>" width="100">
-            <?php else : ?>
-                <p>Tidak ada foto</p>
-            <?php endif; ?>
-        </div>
-        <div class="mb-3">
-            <input type="submit" value="Simpan" name="simpan" class="btn btn-primary">
-        </div>
-    </form>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password Baru</label>
+        <input type="password" class="form-control" name="password" placeholder="Masukkan Password Baru">
+    </div>
+    <div class="mb-3">
+        <label for="foto" class="form-label">Ganti Foto Profil</label>
+        <input type="file" class="form-control" name="foto">
+    </div>
+    <div class="mb-3">
+        <label for="foto_lama" class="form-label">Foto Lama</label><br>
+        <?php if (!empty($user['foto']) && file_exists('img/' . $user['foto'])) : ?>
+            <img src="img/<?= $user['foto'] ?>" width="100">
+        <?php else : ?>
+            <p>Tidak ada foto</p>
+        <?php endif; ?>
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Simpan" name="simpan" class="btn btn-primary">
+    </div>
+</form>

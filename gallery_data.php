@@ -12,7 +12,7 @@
         include "koneksi.php";
 
         $hlm = (isset($_POST['hlm'])) ? $_POST['hlm'] : 1;
-        $limit = 3;
+        $limit = 6;
         $limit_start = ($hlm - 1) * $limit;
         $no = $limit_start + 1;
 
@@ -20,7 +20,6 @@
         $hasil = $conn->query($sql);
 
 
-        $no = 1;
         while ($row = $hasil->fetch_assoc()) {
         ?>
             <tr>
@@ -137,13 +136,13 @@ $total_records = $hasil1->num_rows;
             echo '<li class="page-item disabled"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a></li>';
         } else {
             $link_prev = ($hlm > 1) ? $hlm - 1 : 1;
-            echo '<li class="page-item halaman" id="1"><a class="page-link" href="#">First</a></li>';
-            echo '<li class="page-item halaman" id="' . $link_prev . '"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a></li>';
+            echo '<li class="page-item halaman" id_img="1"><a class="page-link" href="#">First</a></li>';
+            echo '<li class="page-item halaman" id_img="' . $link_prev . '"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a></li>';
         }
 
         for ($i = $start_number; $i <= $end_number; $i++) {
             $link_active = ($hlm == $i) ? ' active' : '';
-            echo '<li class="page-item halaman ' . $link_active . '" id="' . $i . '"><a class="page-link" href="#">' . $i . '</a></li>';
+            echo '<li class="page-item halaman ' . $link_active . '" id_img="' . $i . '"><a class="page-link" href="#">' . $i . '</a></li>';
         }
 
         if ($hlm == $jumlah_page) {
@@ -151,8 +150,8 @@ $total_records = $hasil1->num_rows;
             echo '<li class="page-item disabled"><a class="page-link" href="#">Last</a></li>';
         } else {
             $link_next = ($hlm < $jumlah_page) ? $hlm + 1 : $jumlah_page;
-            echo '<li class="page-item halaman" id="' . $link_next . '"><a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a></li>';
-            echo '<li class="page-item halaman" id="' . $jumlah_page . '"><a class="page-link" href="#">Last</a></li>';
+            echo '<li class="page-item halaman" id_img="' . $link_next . '"><a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a></li>';
+            echo '<li class="page-item halaman" id_img="' . $jumlah_page . '"><a class="page-link" href="#">Last</a></li>';
         }
         ?>
     </ul>

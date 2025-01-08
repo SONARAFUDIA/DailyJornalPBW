@@ -17,11 +17,9 @@
         $limit_start = ($hlm - 1) * $limit;
         $no = $limit_start + 1;
 
-        $sql = "SELECT * FROM article LIMIT $limit_start, $limit";
+        $sql = "SELECT * FROM article ORDER BY tanggal DESC LIMIT $limit_start, $limit";
         $hasil = $conn->query($sql);
 
-
-        $no = 1;
         while ($row = $hasil->fetch_assoc()) {
         ?>
             <tr>
