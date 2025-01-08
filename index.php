@@ -55,7 +55,7 @@ include "koneksi.php";
                         <a class="navLinka nav-link" href="#aboutme">About Me</a>
                     </li>
                     <li class="nav-item my-auto">
-                        <a class="navLinka nav-link" href="login.php" target="_blank">Login</a>
+                        <a class="navLinka nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
                         <button id="darkTheme" class="btn btn-dark">
@@ -140,56 +140,44 @@ include "koneksi.php";
         <div class="container">
             <h1 class="fw-bold display-4 pb-3">Gallery</h1>
             <div id="carouselExample" class="carousel slide">
+                <?php
+                $sql = "SELECT * FROM gallery";
+                $hasil = $conn->query($sql);
+
+                $active = true; // Flag to set the first item as active
+                ?>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img
-                            src="https://static.miraheze.org/bluearchivewiki/1/1d/BG_Campus.jpg"
-                            class="d-block w-100"
-                            alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img
-                            src="https://static.miraheze.org/bluearchivewiki/a/ac/BG_CityDowntown.jpg"
-                            class="d-block w-100"
-                            alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img
-                            src="https://media.discordapp.net/attachments/736224388860346380/1300856469322993784/BG_Park.jpg?ex=67225c7f&is=67210aff&hm=39e9b1b0d4e9125fc5b3788ba2a95e310411da460afb7add5495284408e72c35&=&format=webp&width=1330&height=934"
-                            class="d-block w-100"
-                            alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img
-                            src="https://media.discordapp.net/attachments/736224388860346380/1300856468886654976/BG_Beachside_Sunset.jpg?ex=67225c7e&is=67210afe&hm=75d64f648eafecfbba676da9899f83bf4f664c0496a2a7059fa989a2701d123b&=&format=webp&width=1330&height=934"
-                            class="d-block w-100"
-                            alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img
-                            src="https://media.discordapp.net/attachments/736224388860346380/1300856470006665367/BG_Cathedral.jpg?ex=67225c7f&is=67210aff&hm=30cb63aee8de8e33b426a42bab1e888fd705e8ae16f8ccfcda1a0bc278732a93&=&format=webp&width=1330&height=934"
-                            class="d-block w-100"
-                            alt="..." />
-                    </div>
+                    <?php
+                    while ($row = $hasil->fetch_assoc()) {
+                    ?>
+                        <div class="carousel-item <?= $active ? 'active' : '' ?>">
+                            <img
+                                src="img/galer/<?= $row["gambar"] ?>"
+                                class="d-block w-100"
+                                alt="..." />
+                        </div>
+                    <?php
+                        $active = false; // Set the flag to false after the first item
+                    }
+                    ?>
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <button
-                    class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExample"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button
-                    class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExample"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
-        </div>
     </section>
     <!--  -->
     <!-- schedule -->

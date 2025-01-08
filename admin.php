@@ -56,6 +56,12 @@ if (!isset($_SESSION['username'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="admin.php?page=article">Article</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php"><b>Homepage</b></a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-info fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?= $_SESSION['username'] ?>
@@ -91,7 +97,7 @@ if (!isset($_SESSION['username'])) {
     <!-- content end -->
     <!-- content end -->
     <!-- footer begin -->
-    <footer class="text-center p-5 bg-info-subtle">
+    <footer class="text-center p-5 bg-info-subtle ">
         <div>
             <a href=""><i class="bi bi-instagram h2 p-2 text-dark"></i></a>
             <a href=""><i class="bi bi-twitter h2 p-2 text-dark"></i></a>

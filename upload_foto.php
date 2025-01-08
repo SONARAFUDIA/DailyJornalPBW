@@ -1,9 +1,10 @@
-<?php 
-function upload_foto($File){    
+<?php
+function upload_foto($File)
+{
 	$uploadOk = 1;
 	$hasil = array();
 	$message = '';
- 
+
 	//File properties:
 	$FileName = $File['name'];
 	$TmpLocation = $File['tmp_name'];
@@ -14,7 +15,7 @@ function upload_foto($File){
 	$FileExt = strtolower(end($FileExt));
 
 	//Allowed files:
-	$Allowed = array('jpg', 'png', 'gif', 'jpeg');  
+	$Allowed = array('jpg', 'png', 'gif', 'jpeg');
 
 	// Check file size
 	if ($FileSize > 500000) {
@@ -23,32 +24,32 @@ function upload_foto($File){
 	}
 
 	// Allow certain file formats
-	if(!in_array($FileExt, $Allowed)){
+	if (!in_array($FileExt, $Allowed)) {
 		$message .= "Sorry, only JPG, JPEG, PNG & GIF files are allowed. ";
-		$uploadOk = 0; 
+		$uploadOk = 0;
 	}
 
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0) {
 		$message .= "Sorry, your file was not uploaded. ";
-		$hasil['status'] = false; 
+		$hasil['status'] = false;
 		// if everything is ok, try to upload file
-	}else{
+	} else {
 		//Create new filename:
-        $NewName = date("YmdHis"). '.' . $FileExt;
-        $UploadDestination = "img/". $NewName; 
+		$NewName = date("YmdHis") . '.' . $FileExt;
+		$UploadDestination1 = "img/" . $NewName;
+		$UploadDestination2 = "img/galer/" . $NewName;
 
-		if (move_uploaded_file($TmpLocation, $UploadDestination)) {
+		if (move_uploaded_file($TmpLocation, $UploadDestination1) && copy($UploadDestination1, $UploadDestination2)) {
 			//echo "The file has been uploaded.";
 			$message .= $NewName;
-			$hasil['status'] = true; 
-		}else{
+			$hasil['status'] = true;
+		} else {
 			$message .= "Sorry, there was an error uploading your file. ";
-			$hasil['status'] = false; 
+			$hasil['status'] = false;
 		}
 	}
-	
-	$hasil['message'] = $message; 
+
+	$hasil['message'] = $message;
 	return $hasil;
 }
-?>
