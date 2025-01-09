@@ -1,5 +1,7 @@
 <?php
 include "koneksi.php";
+include "upload_foto.php";
+
 
 // Pastikan pengguna sudah login
 if (!isset($_SESSION['username'])) {

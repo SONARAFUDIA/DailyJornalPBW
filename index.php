@@ -81,12 +81,12 @@ include "koneksi.php";
         <div class="container">
             <div class="d-lg-flex flex-lg-row-reverse align-items-center">
                 <img
-                    src="https://static.miraheze.org/bluearchivewiki/2/20/BG_CS_PV_03.jpg"
+                    src="img/BG_CS_PV_03.jpg"
                     alt="default"
                     class="img-fluid"
                     width="600" />
                 <div class="p-2">
-                    <h1 class="fw-bold display-4 text-sm-start">Welcome to Kivotos2</h1>
+                    <h1 class="fw-bold display-4 text-sm-start">Welcome to Kivotos</h1>
                     <h4 class="lead display-6 text-sm-start">
                         Home to thousands of different academies
                     </h4>
@@ -152,12 +152,12 @@ include "koneksi.php";
                     ?>
                         <div class="carousel-item <?= $active ? 'active' : '' ?>">
                             <img
-                                src="img/galer/<?= $row["gambar"] ?>"
+                                src="img/<?= $row["gambar"] ?>"
                                 class="d-block w-100"
                                 alt="..." />
                         </div>
                     <?php
-                        $active = false; // Set the flag to false after the first item
+                        $active = false;
                     }
                     ?>
                     <button
@@ -294,7 +294,8 @@ include "koneksi.php";
                     <h1 class="fw-bold display-4 text-md-start">Naufal Irfan najib</h1>
                     <h5 class="lead text-md-start">Program Studi Teknik Informatika</h5>
                     <a
-                        href="https://portal.dinus.ac.id/"
+                        href="https://dinus.ac.id/"
+                        target="_blank"
                         class="text-md-start text-decoration-none text-black">
                         <h4>Universitas Dian Nuswantoro</h4>
                     </a>
