@@ -88,7 +88,7 @@ include "koneksi.php";
                 <div class="p-2">
                     <h1 class="fw-bold display-4 text-sm-start">Welcome to Kivotos</h1>
                     <h4 class="lead display-6 text-sm-start">
-                        Home to thousands of different academies (change made by <b>Tera</b>)
+                        Home to thousands of different academies (changed made by <b>Tera</b>)
                     </h4>
                     <h6 class="text-sm-start">
                         <span id="tanggal"></span>
